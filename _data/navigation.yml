@@ -1,0 +1,8 @@
+- name: Home
+  link: /
+- name: Analisis
+  link: /analisis-activos.html
+- name: Reporte
+  link: /reporte-sib.html
+- name: Test
+  link: /docs/test.html

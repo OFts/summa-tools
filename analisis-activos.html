@@ -1,0 +1,233 @@
+---
+layout: base
+title: Analisis de Activos
+---
+
+<h1 class="text-center text-3xl font-bold my-12 text-gray-700">
+  VALOR DE ACTIVOS EN EL TIEMPO
+</h1>
+
+<p class="my-12 text-gray-700">La siguiente herramiento realiza un análisis cuantitativo del valor aproximado de un activo en el tiempo. Este análisis se basa en valores del mercado primario y secundario, tanto nacional como internacional de distintos tipos de activos. <br>
+<b>Importante:</b> El análisis realizado comprende únicamente una aproximación y sus valores pueden variar según el mercado, la naturaleza específica del activo, así como su estado.</p>
+
+<form autocomplete="off">
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+      <!-- Tipo de activo -->
+
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Tipo de activo
+          </label>
+
+          <div class="relative">
+              <select name="assetTypes" id="assetTypes"
+                  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+              </select>
+              <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+              </div>
+          </div>
+      </div>
+
+      <!-- Valor -->
+      <div class="w-full md:w-1/2 px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+              Valor
+          </label>
+          <input
+              name="value" id="value" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text" placeholder="1,000,000">
+      </div>
+
+  </div>
+
+  <!-- Info -->
+  <div class="accordion w-full bg-gray-200 text-gray-700 rounded py-3 px-4">ACERCA DEL TIPO DE ACTIVO</div>
+  <div class="panel bg-gray-100">
+
+      <div class="flex flex-wrap -mx-3">
+          <div class="w-full md:w-1/2 px-3">
+              <p class="info-a pb-0 md:pb-6 md:pr-0 p-6 text-gray-700 text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="w-full md:w-1/2 px-3 pt-6 min-h-full flex flex-col justify-center">
+              <div class="flex flex-col px-6">
+                  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 text-center">
+                      <div class="pb-6 inline-block sm:px-6 lg:px-8">
+                      <div class="overflow-hidden">
+                          <table class=" text-center">
+                          <tbody>
+                              <tr class="border-y border-gray-700">
+                                  <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-700">Depreciación inicial</td>
+                                  <td class="text-sm text-gray-700 font-light px-6 py-2 whitespace-nowrap">
+                                      <span class="info-a"></span> %
+                                  </td>
+                                  </tr class="border-b border-gray-700">
+                                  <tr class=" border-b border-gray-700">
+                                  <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-700">Depreciación máxima</td>
+                                  <td class="text-sm text-gray-700 font-light px-6 py-2 whitespace-nowrap">
+                                      <span class="info-a"></span> %
+                                  </td>
+                                  </tr>
+                                  <tr class="border-b border-gray-700">
+                                  <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-700">Vida útil equivalente</td>
+                                  <td class="text-sm text-gray-700 font-light px-6 py-2 whitespace-nowrap">
+                                      <span class="info-a"></span> años
+                                  </td>
+                                  </tr>
+                          </tbody>
+                          </table>
+                      </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+  <!-- Second row -->
+
+  <div class="flex flex-wrap -mx-3 my-6">
+
+      <!-- Meses -->
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Meses de financiamiento
+          </label>
+          <input
+              id="months" name="months" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text" placeholder="36">
+      </div>
+
+      <!-- Bien usado -->
+      <div class="w-full md:w-1/2 px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Condición del bien
+          </label>
+          <div class="relative">
+              <select id="condition"
+                  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option value = "new">Es un bien NUEVO</option>
+                  <option value = "used">Es un bien USADO</option>
+              </select>
+              <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Third row -->
+  
+  <div id="usedCondition" class="hidden flex-wrap -mx-3 mb-6">
+      <!-- Criterio seleccionado -->
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Criterio de estimación
+          </label>
+          <div class="relative">
+              <select id="criteria"
+                  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option value = "monthsUsed">Antigüedad en meses</option>
+                  <option value = "valueNew">Valor como nuevo</option>
+              </select>
+              <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+              </div>
+          </div>
+      </div>
+
+      <!-- Valor del criterio -->
+      <div class="w-full md:w-1/2 px-3">
+          <label id="refLabel" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Meses o valor inicial
+          </label>
+          <input
+              id="valReference" name="months" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text">
+      </div>
+  </div>
+
+  <!-- Forth row -->
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+      <!-- Currency -->
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Divisa de la operación
+          </label>
+          <div class="relative">
+              <select id="currency"
+                  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option value="q">GT Quetzales - Q</option>
+                  <option value="d">US Dollars - $</option>
+              </select>
+              <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+              </div>
+          </div>
+      </div>
+
+      <!-- Tipo de cambio -->
+      <div id="exchange" class="hidden w-full md:w-1/2 px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Tipo de cambio
+          </label>
+          <input
+              id="exValue" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text" value="7.85">
+      </div>
+  </div>
+
+</form>
+
+<button id="calculate" class="btn-cal uppercase block mt-4 w-full text-white font-bold py-3 px-6 rounded text-xl">
+  Calcular
+</button>
+
+<!-- -------------------------------- Chart -------------------------------- -->
+
+<div id="chartContainer" class="hidden">
+  <h1 class="text-center text-3xl font-bold mt-20 mb-12 text-gray-700">
+      GRÁFICO DE VALOR
+  </h1>
+  <p class="text-center">Esta figura describe el comportamiento del valor del activo en el tiempo.</p>
+  <div id="miniChart">
+      <canvas id="chart"></canvas>
+  </div>
+</div>
+
+<!-- -------------------------------- Table -------------------------------- -->
+
+<div id="spreadsheetContainer" class="hidden text-center">
+  <h1 class="text-center text-3xl font-bold mt-20 mb-12 text-gray-700">
+      TABLA DE VALOR
+  </h1>
+
+  <div class="accordion w-full bg-gray-200 text-gray-700 rounded py-3 px-4"><span style="color: #1f3d64;">■</span> MÉTODO EXPONENCIAL</div>
+  <div class="panel bg-gray-100">
+      <div id="spreadsheet" class="overscroll-y-auto overflow-x-scroll max-w-full my-6"></div>
+  </div>
+  <div class="accordion w-full bg-gray-200 text-gray-700 rounded py-3 px-4"><span style="color: #ff5733;">■</span> MÉTODO LINEAL</div>
+  <div class="panel bg-gray-100">
+      <div id="spreadsheet-m1" class="overscroll-y-auto overflow-x-scroll max-w-full my-6"></div>
+  </div>
+  <div class="accordion w-full bg-gray-200 text-gray-700 rounded py-3 px-4"><span style="color: #bbc446;">■</span> MÉTODO DECRECIENTE</div>
+  <div class="panel bg-gray-100">
+      <div id="spreadsheet-m2" class="overscroll-y-auto overflow-x-scroll max-w-full my-6"></div>
+  </div>
+</div>

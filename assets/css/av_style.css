@@ -1,0 +1,75 @@
+@media print {
+  @page {
+    size: a3;
+  }
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #1f3d64;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #2a4c79;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Accordion */
+
+.accordion {
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: rgb(209 213 219) !important;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/* Chart container */
+
+.eightyv {
+  height: 80vh;
+}
+
+/* Button style */
+.btn-cal {
+  background: #1f3d64;
+}
+
+.btn-cal:hover {
+  background: #bbc446;
+}

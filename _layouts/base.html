@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+ ______     __  __     __    __     __    __     ______    
+/\  ___\   /\ \/\ \   /\ "-./  \   /\ "-./  \   /\  __ \   
+\ \___  \  \ \ \_\ \  \ \ \-./\ \  \ \ \-./\ \  \ \  __ \  
+ \/\_____\  \ \_____\  \ \_\ \ \_\  \ \_\ \ \_\  \ \_\ \_\ 
+  \/_____/   \/_____/   \/_/  \/_/   \/_/  \/_/   \/_/\/_/                                                       
+Developed by OFts🔥
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <title>{{ page.title }} SUMMA</title>
+  
+  <link rel="icon" type="image/png" href="assets/images/summa.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- REPORTE SIB -->
+  <script>
+    window.TextEncoder = window.TextDecoder = null;
+  </script>
+  <!-- https://github.com/inexorabletash/text-encoding -->
+  <script type="text/javascript" src="assets/js/encoding-indexes.js"></script>
+  <script type="text/javascript" src="assets/js/encoding.js"></script>
+  <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="assets/js/tx_data.js" defer></script>
+  <script src="assets/js/tx_main.js" defer></script>
+  <link rel="stylesheet" href="assets/css/tx_style.css">
+
+  <!-- ANALISIS ACTIVOS ASSETS -->
+  <link rel="stylesheet" href="assets/css/av_style.css">
+  <script type="text/javascript" src="assets/js/av_data.js" defer></script>
+  <script type="text/javascript" src="assets/js/av_app.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://bossanova.uk/jspreadsheet/v4/jexcel.js"></script>
+  <script src="https://jsuites.net/v4/jsuites.js"></script>
+  <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+  <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css" type="text/css" />
+ 
+</head>
+
+<body>
+  {% include navigation.html %}
+
+  <div class="mx-auto  max-w-5xl my-12 px-5" data-aos="fade-in" data-aos-duration="2000">
+    {{ content }}
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

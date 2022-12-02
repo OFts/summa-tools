@@ -1,0 +1,19 @@
+.gray-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(75 85 99) rgb(229 231 235);
+}
+
+/* Works on Chrome, Edge, and Safari */
+.gray-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.gray-scrollbar::-webkit-scrollbar-track {
+  background: rgb(229 231 235);
+}
+
+.gray-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(75 85 99);
+  border-radius: 10px;
+  border: 5px solid rgb(229 231 235);
+}
