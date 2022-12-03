@@ -1,8 +1,8 @@
 - name: Home
   link: /
 - name: Analisis
-  link: /analisis-activos.html
+  link: /analisis-activos
 - name: Reporte
-  link: /reporte-sib.html
+  link: /reporte-sib
 - name: Test
-  link: /docs/test.html
+  link: /docs/test
