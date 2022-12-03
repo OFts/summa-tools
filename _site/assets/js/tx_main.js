@@ -92,6 +92,7 @@ function rowNode(info) {
 
 // Lectura de txt linea por linea
 document.getElementById('fl').onchange = function(){
+  console.log("cambio");
   tabla.innerHTML = '';
   titles.innerHTML = '';
   var fl = this.files[0];
