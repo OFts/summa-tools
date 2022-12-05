@@ -3,6 +3,9 @@ var tabla = document.getElementById("table");
 var nuevo = document.getElementById("nuevo");
 var titles = document.getElementById("table-titles");
 
+// Global variables
+var excelData = [columns.map(row =>(row.nombre))]; // Variable de documento de texto hecho array
+var excelImport = []; // Variable con datos importados de hoja de excel
 // Sortable table
 Sortable.create(tabla, {
   handle: ".my-handle",
@@ -82,7 +85,9 @@ function rowNode(info) {
     node.style.maxWidth = "20rem";
     node.classList.add('border','align-middle','border-gray-600','px-2','mx-0.5','focus:border-red-500','focus:border-2','focus:outline-none','uppercase');
     if (info) {
-      node.value = info.slice(pos, pos+param.longitud).trim();
+      var valSlice = info.slice(pos, pos+param.longitud).trim();
+      node.value = valSlice;
+      excelData[excelData.length-1].push(valSlice);
     }
     rownode.appendChild(node);
     pos+=param.longitud;
@@ -111,8 +116,10 @@ document.getElementById('fl').onchange = function(){
     // By allrows
     var allrows = this.result.split('\r\n');
     for(var row = 0; row < allrows.length; row++){
+      excelData.push([]);
       tabla.appendChild(rowNode(allrows[row]));
     }
+    console.log(excelData);
   };
   reader.readAsText(fl,"cp1252"); // Lee archivo ANSI
   document.getElementById('table-package').classList.remove('hidden');
@@ -134,4 +141,76 @@ nuevo.addEventListener('click',()=>{
 });
 
 
+// Generador de archivo excel
+
+function saveXLSX() {
+  var wb = XLSX.utils.book_new();
+  wb.Props = {
+    Title: "Unidades de riesgo",
+    Subject: "Test file",
+    Author: "Oscar Fuentes"
+  };
+  wb.SheetNames.push("Unidades");
+  // var ws_data = [{ name: "George Washington", birthday: "1732-02-22" },{ name: "John Adams", birthday: "1735-10-19" },];
+  var ws = XLSX.utils.aoa_to_sheet(excelData);
+  wb.Sheets["Unidades"] = ws;
+  XLSX.writeFile(wb, "UR.xlsx", { compression: true });
+}
+
 // Lector de archivo excel
+var workbook = XLSX.utils.book_new();
+function handleFile(e) {
+  var file = e.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    /* DO SOMETHING WITH workbook HERE */
+    workbook = XLSX.read(e.target.result);
+    var worksheet = workbook.Sheets['Unidades de Riesgo'];
+    // worksheet data to multidimensional array
+    excelImport = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+    downloadXL2TXT();
+  };
+  reader.readAsArrayBuffer(file);
+}
+document.getElementById("xlsx").addEventListener("change", handleFile, false);
+
+// Descarga de excel a texto
+
+function downloadXL2TXT() {
+  // var collection = 0 ;
+  var txtcontent = '';
+  // collection = document.getElementsByClassName("list-group");
+  let iterations = excelImport.length-1;
+  console.log("Filas " + iterations);
+  // for (const line of collection[0].children) {
+  let lineCont = 0;
+  for (const line of excelImport){
+    let cont = 0;
+    // for (const linput of line.children) {
+    // console.log(line[0].length);
+    if (lineCont != 0 && line.length>0){ // Excludes title line and empty excel rows
+      for (var linput of line){
+        if (cont != 0){ // Excludes firt column
+          if (!isNaN(linput) && [26,27].indexOf(cont)>=0){ // Columnas donde existen números
+            linput = Math.trunc(linput).toString();
+          }
+          txtcontent = txtcontent.concat(linput);
+          if (linput.length<columns[cont-1].longitud) {
+            txtcontent=txtcontent.concat(Array(columns[cont-1].longitud-linput.length).fill(' ').join(''));
+          }
+        }
+        cont++;
+      }
+      txtcontent = txtcontent.concat('>');  
+      if (--iterations) {
+        txtcontent = txtcontent.concat('\r\n'); // CRLF
+      }
+    }
+    lineCont++;
+  }
+  console.log(txtcontent);
+  let date = new Date();
+  let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  var bytes = new TextEncoder("windows-1252", { NONSTANDARD_allowLegacyEncoding: true }).encode(txtcontent);
+  BlobDownload("UR"+("0" + lastDay.getFullYear()).slice(-2)+("0" + (lastDay.getMonth()+1)).slice(-2) +("0" + lastDay.getDate()).slice(-2), [bytes]);
+}
