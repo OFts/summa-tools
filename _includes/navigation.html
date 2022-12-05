@@ -24,7 +24,7 @@
 
             {% for item in site.data.navigation %}
               <li>
-                <a href="{{ item.link }}"
+                <a href="{{site.baseurl}}{{ item.link }}"
                 class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-sgreen md:p-0 ">{{ item.name }}</a>
               </li>
             {% endfor %}
