@@ -40,10 +40,16 @@ incremental         : false
 
 # Serving
 detach              : false
-port                : 4000
-host                : 127.0.0.1
-baseurl             : "" # does not include hostname
+# port                : 4000
+# host                : 127.0.0.1
+# baseurl             : "" # does not include hostname
 show_dir_listing    : false
+
+# GitHub Pages
+
+domain: ofts.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://ofts.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+baseurl: /summa-tools/      # place folder name if the site is served in a subfolder
 
 # Outputting
 permalink           : date
