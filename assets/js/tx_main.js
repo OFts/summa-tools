@@ -210,7 +210,7 @@ function downloadXL2TXT() {
   }
   console.log(txtcontent);
   let date = new Date();
-  let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  let lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
   var bytes = new TextEncoder("windows-1252", { NONSTANDARD_allowLegacyEncoding: true }).encode(txtcontent);
   BlobDownload("UR"+("0" + lastDay.getFullYear()).slice(-2)+("0" + (lastDay.getMonth()+1)).slice(-2) +("0" + lastDay.getDate()).slice(-2), [bytes]);
 }
